@@ -1,0 +1,10 @@
+import cv2 as cv
+img = cv.imread("resources/asf.jpg")
+img = cv.resize(img,(400,300))
+gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+(thresh,binary) = cv.threshold(gray,101,300,cv.THRESH_BINARY)
+cv.imshow("original",img)
+cv.imshow("Binary Image",binary)
+cv.imshow("first",gray)
+cv.waitKey(0)
+cv.destroyAllWindows()
