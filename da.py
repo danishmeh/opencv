@@ -26,18 +26,9 @@ while True:
     val_min = cv.getTrackbarPos("Val Min", "Bars")
     val_max = cv.getTrackbarPos("Val Max", "Bars")
     print(hue_min, hue_max, sat_min, sat_max, val_min, val_max)
-    
-    lower = np.array([hue_min,sat_min,val_min])
-    upper = np.array([hue_max,sat_max,val_max])
-    msk_img = cv.inRange(hsv_img,lower,upper)
-    out_img = cv.bitwise_and(img,img,mask=msk_img)
-    
-    
 
-    # cv.imshow("Image", img)
+    cv.imshow("Image", img)
     cv.imshow("hsv_img", hsv_img)
-    cv.imshow("mask_img", msk_img)
-    cv.imshow("out_img", out_img)
 
     if cv.waitKey(1) & 0xFF == ord("q"):
         break
